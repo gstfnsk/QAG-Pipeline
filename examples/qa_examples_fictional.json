@@ -1,0 +1,48 @@
+{
+  "positivos": [
+    {
+      "projeto": "0000000000001",
+      "passagem": "O grão-azul perde até 30% da colheita por causa do fungo fictício Fusarium imaginarium, que se espalha em períodos de alta umidade.",
+      "tipo": "por_que",
+      "pergunta": "Por que o fungo Fusarium imaginarium causa mais perdas no grão-azul em certas épocas do ano?",
+      "resposta": "Porque se espalha em períodos de alta umidade.",
+      "evidencia": "que se espalha em períodos de alta umidade",
+      "justificativa": "A passagem explica a causa de um fenômeno; a cultura e o nome do fungo tornam a pergunta específica e compreensível sozinha."
+    },
+    {
+      "projeto": "0000000000002",
+      "passagem": "As amostras de folhas de grão-azul serão secas a 60 °C por 48 horas e moídas em moinho de facas antes da análise de nitrogênio.",
+      "tipo": "como",
+      "pergunta": "Como as folhas de grão-azul serão preparadas antes da análise de nitrogênio?",
+      "resposta": "Serão secas a 60 °C por 48 horas e moídas em moinho de facas.",
+      "evidencia": "serão secas a 60 °C por 48 horas e moídas em moinho de facas",
+      "justificativa": "Procedimento concreto; a cultura e a análise dão contexto sem depender de outras passagens."
+    },
+    {
+      "projeto": "0000000000003",
+      "passagem": "Os ensaios de campo com a cultivar fictícia Azulão serão instalados nos municípios imaginários de Pedra Clara e Rio Manso.",
+      "tipo": "factual",
+      "pergunta": "Em que municípios serão instalados os ensaios de campo da cultivar Azulão?",
+      "resposta": "Pedra Clara e Rio Manso.",
+      "evidencia": "nos municípios imaginários de Pedra Clara e Rio Manso",
+      "justificativa": "Localização concreta; o nome da cultivar torna a pergunta específica e ela não revela a resposta."
+    }
+  ],
+  "negativos": [
+    {
+      "projeto": "0000000000004",
+      "passagem": "Estes serão aplicados em três doses nas parcelas descritas anteriormente.",
+      "justificativa": "\"Estes\" e \"parcelas descritas anteriormente\" se referem a algo de fora da passagem; não é possível formular uma pergunta compreensível sozinha."
+    },
+    {
+      "projeto": "0000000000005",
+      "passagem": "A equipe do projeto se reunirá periodicamente para acompanhar o andamento das atividades.",
+      "justificativa": "Não há nenhum detalhe que identifique este projeto; a pergunta serviria para muitos projetos e teria várias respostas corretas."
+    },
+    {
+      "projeto": "0000000000006",
+      "passagem": "Serão avaliados os efeitos dos tratamentos sobre a cultura.",
+      "justificativa": "A passagem só anuncia uma avaliação, sem dizer quais tratamentos, qual cultura ou com que resultado; a resposta só repetiria a pergunta."
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+EXEMPLOS POSITIVOS
+
+Exemplo 1
+Frases:
+[1] A cultura fictícia do grão-azul ocupa cerca de 2 milhões de hectares e emprega mais de 300 mil trabalhadores rurais.
+
+Essa frase é adequada porque permite perguntas como: "Qual é a área ocupada pela cultura do grão-azul?" e "Quantos trabalhadores ela emprega?"
+
+Saída:
+{"passages": [{"sentence_ids": [1]}]}
+
+Exemplo 2
+Frases:
+[1] O Vale Imaginário é a principal região produtora de grão-azul do país.
+
+Essa frase é adequada porque permite perguntar qual é a principal região produtora de grão-azul.
+
+Saída:
+{"passages": [{"sentence_ids": [1]}]}
+
+Exemplo 3
+Frases:
+[1] O Vale Imaginário é a principal região produtora de grão-azul do país.
+[2] Nos últimos anos, o cultivo tem avançado para as serras do norte, substituindo pastagens degradadas.
+
+As duas frases são individualmente completas e devem formar passagens separadas e não sobrepostas.
+
+Saída:
+{"passages": [{"sentence_ids": [1]}, {"sentence_ids": [2]}]}
+
+Exemplo 4
+Frases:
+[1] As parcelas tratadas apresentaram aumento de 15% na produtividade.
+[2] Esse resultado foi obtido após a aplicação de cobertura morta de palha de grão-azul.
+
+A segunda frase depende de "Esse resultado". Para preservar a referência, o menor trecho autocontido contém as duas frases.
+
+Saída:
+{"passages": [{"sentence_ids": [1, 2]}]}
+
+EXEMPLOS NEGATIVOS
+
+Exemplo 5
+Frases:
+[1] grão-azul; cobertura morta; Vale Imaginário
+
+Não selecionar: é uma lista de palavras-chave, não uma afirmação completa.
+
+Saída:
+{"passages": []}
+
+Exemplo 6
+Frases:
+[1] Avaliação da cobertura morta no cultivo de grão-azul
+
+Não selecionar: é um título e não apresenta uma informação factual completa.
+
+Saída:
+{"passages": []}
+
+Exemplo 7
+Frases:
+[1] Isso também traz consequências relevantes.
+
+Não selecionar: "Isso" não possui referente no trecho.
+
+Saída:
+{"passages": []}
+
+Exemplo 8
+Frases:
+[1] 3.2. Organização da Equipe Levantamento das áreas cultivadas com grão-azul no Vale Imaginário.
+[2] 4.1.3. Coleta de amostras de solo nas parcelas.
+
+Não selecionar: são cabeçalhos numerados, não afirmações factuais.
+
+Saída:
+{"passages": []}
+

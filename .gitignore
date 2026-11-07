@@ -1,0 +1,10 @@
+# Corpus, results and progress files must never be committed.
+*.json
+*.jsonl
+*.txt
+!examples/*.json
+!examples/*.txt
+!requirements.txt
+
+__pycache__/
+.DS_Store

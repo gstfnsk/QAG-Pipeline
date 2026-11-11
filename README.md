@@ -10,7 +10,7 @@ Todos os modelos rodam **localmente** com o [Ollama](https://ollama.com). Os scr
 
 | # | Script | Entrada → saída |
 |---|---|---|
-| 1 | `clean_corpus.py` | corpus original → corpus só com o código do projeto e os campos de texto, sem palavras-chave e títulos |
+| 1 | `clean_corpus.py` | corpus original → corpus só com o código do projeto e os campos de texto, sem as palavras-chave. Os campos de título ficam no corpus e são pulados na etapa 2, sem chamar o modelo |
 | 2 | `run_batches.py` + `select_passages.py` | corpus limpo → passagens selecionadas pelo LLM, em lotes de 100 projetos |
 | 3 | `verify_passages.py`, `processing_stats.py` | confere que toda passagem está no texto original; estatísticas de tempo, chamadas e saída |
 | 4 | `merge_passages.py` | lotes → `{código do projeto: [passagens]}` |

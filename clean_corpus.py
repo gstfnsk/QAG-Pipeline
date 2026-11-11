@@ -4,11 +4,12 @@
 For every project:
 - metadados: keeps only ``codigoprojeto``;
 - chunks_sem (semantic chunks): removed;
-- chunks_est (structured fields): keeps every field except keywords and
-  titles (palavra-chave, tituloprojeto, tituloatividade, tituloplanodeacao,
-  tituloresultado). Field names are compared ignoring accents, hyphens,
-  spaces, underscores and case, so "palavra-chave", "palavrachave" and
-  "palavras_chave" are all removed.
+- chunks_est (structured fields): keeps every field except the keyword list
+  (``palavrachave``).
+
+Title fields (tituloprojeto, tituloatividade, tituloplanodeacao,
+tituloresultado) are kept here: select_passages.py skips them without calling
+the model, because they are short noun phrases with no complete fact.
 
 Usage:
     python clean_corpus.py corpus.json > corpus_clean.json
@@ -24,36 +25,17 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-import unicodedata
 from collections import Counter
 from pathlib import Path
 
-# chunks_est fields to remove, already normalized (see normalize_key).
-REMOVED_FIELDS = {
-    "palavrachave",
-    "palavraschave",
-    "tituloprojeto",
-    "tituloatividade",
-    "tituloplanodeacao",
-    "tituloresultado",
-}
-
-
-def normalize_key(key: str) -> str:
-    """Lowercase, no accents, letters and digits only ("Palavra-chave" -> "palavrachave")."""
-    without_accents = "".join(
-        character
-        for character in unicodedata.normalize("NFKD", key)
-        if not unicodedata.combining(character)
-    )
-    return "".join(character.lower() for character in without_accents if character.isalnum())
+# chunks_est fields to remove.
+REMOVED_FIELDS = {"palavrachave"}
 
 
 def clean_project(project: dict, removed: Counter) -> dict:
-    chunks_est = project["chunks_est"]
     kept_fields = {}
-    for key, value in chunks_est.items():
-        if normalize_key(key) in REMOVED_FIELDS:
+    for key, value in project["chunks_est"].items():
+        if key in REMOVED_FIELDS:
             removed[key] += 1
         else:
             kept_fields[key] = value
